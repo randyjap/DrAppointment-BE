@@ -6,9 +6,11 @@ column name     | data type | details
 id              | integer   | not null, primary key
 first_name      | string    | not null
 last_name       | string    | not null
-phone_number    | string    | not null, indexed
-country_code    | integer   | not null, indexed
-authy           | integer   | not null, indexed
+phone_number    | string    | not null, indexed, unique
+country_code    | string    | not null
+authy_id        | string    | not null
+session_token   | string    | not null, indexed
+status          | string    | not null
 
 ## patients
 column name     | data type | details
@@ -23,10 +25,10 @@ column name       | data type | details
 ------------------|-----------|-----------------------
 id                | integer   | not null, primary key
 salutation        | string    | not null
-first_name        | string    | not null
-last_name         | string    | not null
+first_name        | string    | not null, indexed
+last_name         | string    | not null, indexed
 street            | string    | not null
-number            | string    | not null
+street_number     | string    | not null
 city              | string    | not null
 lat               | float     | not null, indexed
 lng               | float     | not null, indexed
@@ -35,14 +37,14 @@ lng               | float     | not null, indexed
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-doctor_id       | integer   | not null
-user_id         | integer   | not null
+doctor_id       | integer   | not null, indexed
+user_id         | integer   | not null, indexed
 
 ## appointment_dates
 column name       | data type | details
 ------------------|-----------|-----------------------
 id                | integer   | not null, primary key
-appointment_dates | date      | not null
+appointment_date  | date      | not null, indexed
 
 ## time_slots
 column name         | data type | details
