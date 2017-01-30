@@ -39,50 +39,60 @@
     address2: "ABC Town, California 99999",
     distance: "1.2 miles",
     image_url: "...image123.jpg",
-    favorited: true
-    timeslots_one: [
-      "1/30 (Mon)": [
-        {
-          time: "10:30am",
-          status: "N/A"
-        },
-        {
-          time: "10:45am",
-          status: "Full"
-        }
-        {
-          time: "11:00am",
-          status: "Open"
-        },
-      ],
-    timeslots_one: "1/31 (Tue)": [
-        {
-          time: "10:30am",
-          status: "Open"
-        },
-        {
-          time: "10:45am",
-          status: "Open"
-        }
-        {
-          time: "11:00am",
-          status: "Open"
-        },
-      ],
-      "2/1 (Wed)": [
-        {
-          time: "10:30am",
-          status: "Full"
-        },
-        {
-          time: "10:45am",
-          status: "Full"
-        }
-        {
-          time: "11:00am",
-          status: "Full"
-        }
-      ]
+    favorited: true,
+    first_day: [
+      {
+        time: "08:00",
+        status: "N/A",
+        date: "01/30 (Mon)"
+      },
+      {
+        time: "08:15",
+        status: "N/A",
+        date: "01/30 (Mon)"
+      },
+      {
+        time: "08:30",
+        status: "N/A",
+        date: "01/30 (Mon)"
+      },
+      ...
+    ],
+    second_day: [
+      {
+        time: "08:00",
+        status: "N/A",
+        date: "01/30 (Mon)"
+      },
+      {
+        time: "08:15",
+        status: "N/A",
+        date: "01/30 (Mon)"
+      },
+      {
+        time: "08:30",
+        status: "N/A",
+        date: "01/30 (Mon)"
+      },
+      ...
+    ],
+    third_day: [
+      {
+        time: "08:00",
+        status: "N/A",
+        date: "01/30 (Mon)"
+      },
+      {
+        time: "08:15",
+        status: "N/A",
+        date: "01/30 (Mon)"
+      },
+      {
+        time: "08:30",
+        status: "N/A",
+        date: "01/30 (Mon)"
+      },
+      ...
     ]
   }
 }

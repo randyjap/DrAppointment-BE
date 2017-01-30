@@ -7,7 +7,7 @@ class Doctor < ApplicationRecord
   has_many :patients, through: :appointment_patients
   has_many :blocked_times
 
-  def schedule(date)
+  def timeslots(date)
     AppointmentDate.find_by(appointment_date: date).time_slots.sort
   end
 end
