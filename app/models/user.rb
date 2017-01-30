@@ -11,8 +11,7 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :patients
   has_many :doctors, through: :appointments
-  has_many :favorite_doctors, through: :favorites, class_name: :Doctor,
-           foreign_key: :doctor_id
+  has_many :favorite_doctors, through: :favorites, source: :doctor
 
   private
 

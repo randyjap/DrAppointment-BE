@@ -7,6 +7,7 @@ class Appointment < ApplicationRecord
   belongs_to :user
 
   has_many :appointment_patients
+  has_many :patients, through: :appointment_patients
 
   private
 

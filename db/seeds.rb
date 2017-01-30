@@ -61,3 +61,8 @@ AppointmentPatient.create(
   appointment: Appointment.first,
   patient: Patient.first
 )
+
+Favorite.create(
+  user: User.first,
+  doctor: Doctor.first
+)
