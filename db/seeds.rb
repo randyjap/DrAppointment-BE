@@ -1,7 +1,7 @@
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  phone_number: '5555555',
+  phone_number: '555 555 5555',
   country_code: '+1',
   authy_id: rand(100000..999999)
 )
@@ -13,8 +13,13 @@ Doctor.create(
   street: "Spear Street",
   street_number: "160",
   city: "San Francisco",
+  zip_code: "99999",
+  state: "California",
   lat: 37.791305,
-  lng: -122.3959239
+  lng: -122.3959239,
+  image_url: "http://previews.123rf.com/images/dolgachov/dolgachov1307/dolgachov130700003/20557312-picture-of-young-team-or-group-of-doctors-Stock-Photo-doctors-doctor-medical.jpg",
+  phone_number: '555 555 5555',
+  country_code: '+1'
 )
 
 21.times do |i|
@@ -23,7 +28,7 @@ Doctor.create(
   )
   hours = 8
   minutes = 0
-  (45).times do
+  45.times do
     hour_string = hours.to_s.rjust(2, "0")
     minute_string = minutes.to_s.rjust(2, "0")
     TimeSlot.create(

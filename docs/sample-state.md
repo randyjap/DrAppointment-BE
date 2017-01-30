@@ -29,19 +29,19 @@
     {
       image_url: "...image123.jpg",
       name: "Dr. Anna Kimble",
-      phone: "123-123-1234"
+      phone: "+1 123-123-1234"
     }
   ]
   doctorSchedule: {
     id: 2,
     name: "Dr. John Smith",
     address: "123 ABC Street",
-    address2: "ABC Town, CA 99999",
+    address2: "ABC Town, California 99999",
     distance: "1.2 miles",
     image_url: "...image123.jpg",
     favorited: true
-    timeslots: [
-      "1/30 (M)": [
+    timeslots_one: [
+      "1/30 (Mon)": [
         {
           time: "10:30am",
           status: "N/A"
@@ -55,7 +55,7 @@
           status: "Open"
         },
       ],
-      "1/31 (T)": [
+    timeslots_one: "1/31 (Tue)": [
         {
           time: "10:30am",
           status: "Open"
@@ -69,7 +69,7 @@
           status: "Open"
         },
       ],
-      "2/1 (W)": [
+      "2/1 (Wed)": [
         {
           time: "10:30am",
           status: "Full"

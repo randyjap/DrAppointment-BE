@@ -58,8 +58,13 @@ ActiveRecord::Schema.define(version: 20170129015532) do
     t.string   "street",        null: false
     t.string   "street_number", null: false
     t.string   "city",          null: false
+    t.string   "zip_code",      null: false
+    t.string   "state",         null: false
     t.float    "lat",           null: false
     t.float    "lng",           null: false
+    t.string   "image_url",     null: false
+    t.string   "phone_number",  null: false
+    t.string   "country_code",  null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["first_name"], name: "index_doctors_on_first_name", using: :btree
