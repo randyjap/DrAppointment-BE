@@ -12,7 +12,7 @@ class Api::UsersController < ApplicationController
         :body => params[:user][:message],
     })
 
-    render json: params[:user]
+    render json: "got it!", status: 200
 
     # @user = User.new(user_params)
     # if @user.save
