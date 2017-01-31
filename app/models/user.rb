@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :status, :inclusion => { :in => %w(pending authenticated disabled),
     :message => "%{value} is not a valid status" }
 
-  after_initialize :ensure_session_token, :default_status
+  after_initialize :ensure_session_token, :default_status, :generate_authy
 
   has_many :appointments
   has_many :favorites
@@ -17,6 +17,10 @@ class User < ApplicationRecord
 
   def default_status
     self.status ||= "pending"
+  end
+
+  def generate_authy
+    self.authy_id ||= rand(100000..999999)
   end
 
   def ensure_session_token
