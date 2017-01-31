@@ -12,7 +12,6 @@ class Api::UsersController < ApplicationController
     from = ENV["twilio_phone_number"]
 
     if @user
-      @user.reset_authy!
       message = "Please enter verification code #{@user.authy_id}"
       @client = Twilio::REST::Client.new(account_sid, auth_token)
       @client.account.messages.create({

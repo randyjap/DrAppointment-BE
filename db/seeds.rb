@@ -2,7 +2,7 @@ User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   phone_number: '5555555555',
-  authy_id: rand(100000..999999)
+  authy_id: 123123
 )
 
 Doctor.create(

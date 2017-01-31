@@ -11,8 +11,7 @@ class Api::SessionsController < ApplicationController
       sign_in(@user)
       render json: @user
     else
-      error = ["Invalid verification code"]
-      render json: error, status: 401
+      render json: ["Invalid verification code"], status: 401
     end
   end
 end
