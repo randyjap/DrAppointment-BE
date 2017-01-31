@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       account_sid = ENV["twilio_account_sid"]
       auth_token = ENV["twilio_auth_token"]
-      to = "#{@user.country_code} #{user.phone_number}"
+      to = "#{@user.country_code} #{@user.phone_number}"
       from = ENV["twilio_phone_number"]
       message = "Please enter verification code #{@user.authy_id}"
       @client = Twilio::REST::Client.new(account_sid, auth_token)
