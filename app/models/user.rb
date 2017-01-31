@@ -13,6 +13,12 @@ class User < ApplicationRecord
   has_many :doctors, through: :appointments
   has_many :favorite_doctors, through: :favorites, source: :doctor
 
+  def reset_token!
+    self.session_token = SecureRandom.urlsafe_base64(16)
+    self.save!
+    self.session_token
+  end
+
   private
 
   def default_status
