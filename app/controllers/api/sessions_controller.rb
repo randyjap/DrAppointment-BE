@@ -8,6 +8,7 @@ class Api::SessionsController < ApplicationController
     )
 
     if @user
+      @user.update(status: "authenticated")
       sign_in(@user)
       render json: @user
     else
