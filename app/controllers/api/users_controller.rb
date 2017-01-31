@@ -8,11 +8,11 @@ class Api::UsersController < ApplicationController
 
     account_sid = ENV["twilio_account_sid"]
     auth_token = ENV["twilio_auth_token"]
-    to = "1 #{@user.phone_number}"
     from = ENV["twilio_phone_number"]
 
     if @user
       message = "Please enter verification code #{@user.authy_id}"
+      to = "1 #{@user.phone_number}"
       @client = Twilio::REST::Client.new(account_sid, auth_token)
       @client.account.messages.create({
           :to => to,
@@ -24,6 +24,7 @@ class Api::UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         message = "Please enter verification code #{@user.authy_id}"
+        to = "1 #{@user.phone_number}"
         @client = Twilio::REST::Client.new(account_sid, auth_token)
         @client.account.messages.create({
             :to => to,
