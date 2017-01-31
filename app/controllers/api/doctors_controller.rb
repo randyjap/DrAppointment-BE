@@ -5,7 +5,7 @@ class Api::DoctorsController < ApplicationController
   end
 
   def favorites
-    user = User.first
+    user = current_user
     @doctors = user.favorite_doctors
   end
 
