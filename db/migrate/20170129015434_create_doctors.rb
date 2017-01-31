@@ -13,7 +13,6 @@ class CreateDoctors < ActiveRecord::Migration[5.0]
       t.float :lng, null: false
       t.string :image_url, null: false
       t.string :phone_number, null: false
-      t.string :country_code, null: false
       t.timestamps
     end
     add_index :doctors, :first_name

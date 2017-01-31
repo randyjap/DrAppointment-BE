@@ -1,8 +1,7 @@
 User.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  phone_number: '555 555 5555',
-  country_code: '+1',
+  phone_number: '5555555555',
   authy_id: rand(100000..999999)
 )
 
@@ -18,8 +17,7 @@ Doctor.create(
   lat: 37.791305,
   lng: -122.3959239,
   image_url: "http://previews.123rf.com/images/dolgachov/dolgachov1307/dolgachov130700003/20557312-picture-of-young-team-or-group-of-doctors-Stock-Photo-doctors-doctor-medical.jpg",
-  phone_number: '555 555 5555',
-  country_code: '+1'
+  phone_number: '5555555555'
 )
 
 21.times do |i|

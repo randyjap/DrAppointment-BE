@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20170129015532) do
     t.float    "lng",           null: false
     t.string   "image_url",     null: false
     t.string   "phone_number",  null: false
-    t.string   "country_code",  null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.index ["first_name"], name: "index_doctors_on_first_name", using: :btree
@@ -103,7 +102,6 @@ ActiveRecord::Schema.define(version: 20170129015532) do
     t.string   "first_name",    null: false
     t.string   "last_name",     null: false
     t.string   "phone_number",  null: false
-    t.string   "country_code",  null: false
     t.string   "authy_id",      null: false
     t.string   "session_token", null: false
     t.string   "status",        null: false
