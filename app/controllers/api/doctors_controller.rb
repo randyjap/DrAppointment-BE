@@ -4,7 +4,9 @@ class Api::DoctorsController < ApplicationController
   def search
     @user = current_user
     if params[:input].nil? || params[:input][:name].nil?
-      
+      @lat = params[:input][:lat]
+      @lng = params[:input][:lng]
+      @doctors = Doctor.all
     else
       @lat = params[:input][:lat]
       @lng = params[:input][:lng]
@@ -25,8 +27,7 @@ class Api::DoctorsController < ApplicationController
   end
 
   def show
-    if current_user
-      @user = User.first
+    if @user = User.first
       @doctor = Doctor.find(params[:id])
       @doctor_schedule = @doctor.timeslots(Date.today)
       @doctor_schedule_2 = @doctor.timeslots(Date.today + 1)
