@@ -19,6 +19,7 @@ json.first_day @doctor_schedule do |schedule|
   json.status status
   date = schedule.appointment_date.appointment_date
   json.date "#{date.strftime("%m")}/#{date.strftime("%d")} (#{date.strftime("%a")})"
+  json.id schedule.id
 end
 
 json.second_day @doctor_schedule_2 do |schedule|

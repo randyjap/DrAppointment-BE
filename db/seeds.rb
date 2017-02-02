@@ -60,8 +60,8 @@ Doctor.create(
     city: Faker::Address.city,
     zip_code: Faker::Address.zip[0..4],
     state: Faker::Address.state,
-    lat: Faker::Address.latitude,
-    lng: Faker::Address.longitude,
+    lat: rand(37.711537399325096..37.77940697341724),
+    lng: rand(-122.47692206127931..-122.40310766918947),
     image_url: "https://static.pexels.com/photos/34983/pexels-photo.jpg",
     phone_number: "555555#{rand(1000..9999)}"
   )
