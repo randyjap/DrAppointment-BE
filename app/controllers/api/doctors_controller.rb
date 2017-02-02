@@ -5,7 +5,13 @@ class Api::DoctorsController < ApplicationController
     @user = User.first
     if params[:input].nil? || params[:input][:name].empty?
       @doctors = Doctor.all
+      @lat = 128
+      @lng = -38
     else
+      @lat = 128
+      @lng = -38
+      # @lat = params[:input][:lat]
+      # @lng = params[:input][:lng]
       @doctors = Doctor.where(
         "lower(first_name) LIKE ? OR lower(last_name) LIKE ?",
         "%#{params[:input][:name].downcase}%",
