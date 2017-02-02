@@ -16,9 +16,56 @@ Doctor.create(
   state: "California",
   lat: 37.791305,
   lng: -122.3959239,
-  image_url: "http://previews.123rf.com/images/dolgachov/dolgachov1307/dolgachov130700003/20557312-picture-of-young-team-or-group-of-doctors-Stock-Photo-doctors-doctor-medical.jpg",
+  image_url: "https://static.pexels.com/photos/34983/pexels-photo.jpg",
   phone_number: '5555555555'
 )
+
+Doctor.create(
+  salutation: "MD",
+  first_name: "James",
+  last_name: "Moriarty",
+  street: "Baker Street",
+  street_number: "221B",
+  city: "London",
+  zip_code: "99999",
+  state: "California",
+  lat: 37.791305,
+  lng: -122.3959239,
+  image_url: "https://static.pexels.com/photos/34983/pexels-photo.jpg",
+  phone_number: '5555555554'
+)
+
+Doctor.create(
+  salutation: "MD",
+  first_name: "Who",
+  last_name: "Who",
+  street: "Telephone Booth",
+  street_number: "Anywhere",
+  city: "London",
+  zip_code: "99999",
+  state: "California",
+  lat: 37.791305,
+  lng: -122.3959239,
+  image_url: "https://static.pexels.com/photos/34983/pexels-photo.jpg",
+  phone_number: '5555555554'
+)
+
+30.times do
+  Doctor.create(
+    salutation: "MD",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    street: Faker::Address.street_name,
+    street_number: Faker::Address.building_number,
+    city: Faker::Address.city,
+    zip_code: Faker::Address.zip[0..4],
+    state: Faker::Address.state,
+    lat: Faker::Address.latitude,
+    lng: Faker::Address.longitude,
+    image_url: "https://static.pexels.com/photos/34983/pexels-photo.jpg",
+    phone_number: "555555#{rand(1000..9999)}"
+  )
+end
 
 21.times do |i|
   appointment_date = AppointmentDate.create(
@@ -68,4 +115,9 @@ AppointmentPatient.create(
 Favorite.create(
   user: User.first,
   doctor: Doctor.first
+)
+
+Favorite.create(
+  user: User.first,
+  doctor: Doctor.last
 )

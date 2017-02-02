@@ -2,18 +2,21 @@ class Api::DoctorsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def search
-    debugger
-    @user = current_user
-    @doctors = Doctor
-      .where(
+    @user = User.first
+    if params[:input].nil? || params[:input][:name].empty?
+      @doctors = Doctor.all
+    else
+      @doctors = Doctor.where(
         "lower(first_name) LIKE ? OR lower(last_name) LIKE ?",
-        "%#{params[:input][:name]}%", "%#{params[:input][:name]}%"
+        "%#{params[:input][:name].downcase}%",
+        "%#{params[:input][:name].downcase}%"
       )
+    end
   end
 
   def favorites
-    if current_user
-      @doctors = current_user.favorite_doctors
+    if User.first
+      @doctors = User.first.favorite_doctors
     else
       render json: ["You are not authorized, please login first"], status: 401
     end

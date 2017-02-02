@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     post 'users', to: 'users#create'
     get 'users/:id', to: 'users#show'
     get 'doctor_search', to: 'doctors#search'
+    post 'doctor_search', to: 'doctors#search'
     get 'favorite_doctors', to: 'doctors#favorites'
-    get 'doctor/:id', to: 'doctors#show'
+    get 'doctors/:id', to: 'doctors#show'
     post 'session', to: 'sessions#create'
     post 'appointments', to: 'appointments#create'
   end
