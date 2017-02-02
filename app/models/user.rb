@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :status, :inclusion => { :in => %w(pending authenticated disabled),
     :message => "%{value} is not a valid status" }
 
-  validates :phone_number, length: { is: 10, :message => "%{value} is not correct length" }
+  validates :phone_number, length: { is: 10, :message => "%{value} is not valid" }
 
   validate :phone_all_numerical?
 
