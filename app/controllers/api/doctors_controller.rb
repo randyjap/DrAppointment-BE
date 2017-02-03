@@ -20,24 +20,20 @@ class Api::DoctorsController < ApplicationController
 
   def favorites
     if current_user
-      @doctors = User.first.favorite_doctors
+      @doctors = current_user.favorite_doctors
     else
       render json: ["You are not authorized, please login first"], status: 401
     end
   end
 
   def show
-    if @user = User.first
+    if @user = User.find(2)
       @doctor = Doctor.find(params[:id])
-      @doctor_schedule = @doctor.timeslots(Date.today)
-      @doctor_schedule_2 = @doctor.timeslots(Date.today + 1)
-      @doctor_schedule_3 = @doctor.timeslots(Date.today + 2)
-      @doctor_schedule_4 = @doctor.timeslots(Date.today + 3)
-      @doctor_schedule_5 = @doctor.timeslots(Date.today + 4)
-      @doctor_schedule_6 = @doctor.timeslots(Date.today + 5)
-      @doctor_schedule_7 = @doctor.timeslots(Date.today + 6)
-      @doctor_schedule_8 = @doctor.timeslots(Date.today + 7)
-      @doctor_schedule_9 = @doctor.timeslots(Date.today + 8)
+      @doctor_schedule = []
+
+      30.times do |i|
+        @doctor_schedule << @doctor.timeslots(Date.today + i)
+      end
     else
       render json: ["You are not authorized, please login first"], status: 401
     end

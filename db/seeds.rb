@@ -67,7 +67,7 @@ Doctor.create(
   )
 end
 
-21.times do |i|
+50.times do |i|
   appointment_date = AppointmentDate.create(
     appointment_date: Date.today + i
   )
