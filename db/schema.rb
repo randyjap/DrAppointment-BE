@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170129015532) do
     t.integer  "doctor_id",    null: false
     t.integer  "time_slot_id", null: false
     t.integer  "user_id",      null: false
+    t.text     "notes"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.index ["doctor_id"], name: "index_appointments_on_doctor_id", using: :btree
