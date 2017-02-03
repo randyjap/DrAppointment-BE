@@ -27,7 +27,7 @@ class Api::DoctorsController < ApplicationController
   end
 
   def show
-    if @user
+    if @user = User.first
       @doctor = Doctor.find(params[:id])
       @doctor_schedule = @doctor.timeslots(Date.today)
       @doctor_schedule_2 = @doctor.timeslots(Date.today + 1)
