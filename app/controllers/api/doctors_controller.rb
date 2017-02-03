@@ -32,6 +32,9 @@ class Api::DoctorsController < ApplicationController
       @doctor_schedule = @doctor.timeslots(Date.today)
       @doctor_schedule_2 = @doctor.timeslots(Date.today + 1)
       @doctor_schedule_3 = @doctor.timeslots(Date.today + 2)
+      @doctor_schedule_4 = @doctor.timeslots(Date.today + 3)
+      @doctor_schedule_5 = @doctor.timeslots(Date.today + 4)
+      @doctor_schedule_6 = @doctor.timeslots(Date.today + 5)
     else
       render json: ["You are not authorized, please login first"], status: 401
     end
