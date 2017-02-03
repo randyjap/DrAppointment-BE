@@ -15,7 +15,9 @@ class Api::AppointmentsController < ApplicationController
       notes: notes
     )
 
-    if @appointment.save
+    if patients.empty?
+      render json: ["need to include patients"], status: 422
+    elsif @appointment.save
       patients.each do |patient|
         AppointmentPatient.create(
           patient: patient,
@@ -29,7 +31,9 @@ class Api::AppointmentsController < ApplicationController
       time = @appointment.time_slot.time[0..1].to_i < 12 ? "#{@appointment.time_slot.time} am" : @appointment.time_slot.time
       doctor_name = "#{doctor.salutation} #{doctor.first_name} #{doctor.last_name}"
       patient_names = patients.map { |patient| "#{patient.first_name} #{patient.last_name}" }.join(" and ")
-      message = "Your appointment for #{patient_names} is confirmed at #{time} on #{@appointment.time_slot.appointment_date.appointment_date} with #{doctor_name}"
+      notes = @appointment.notes.nil? ? "" :
+      "\n\nYou left the following notes:\n\n#{@appointment.notes}"
+      message = "Your appointment for #{patient_names} is confirmed at #{time} on #{@appointment.time_slot.appointment_date.appointment_date} with #{doctor_name} #{notes}"
       @client = Twilio::REST::Client.new(account_sid, auth_token)
       @client.account.messages.create({
           :to => to,
