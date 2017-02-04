@@ -33,6 +33,6 @@ class Appointment < ApplicationRecord
   end
 
   def in_the_future?
-    errors.add(:appointment, "must be in the future") if time_slot.appointment_date.appointment_date > Date.today
+    errors.add(:appointment, "must be in the future") if time_slot.appointment_date.appointment_date < Date.today
   end
 end

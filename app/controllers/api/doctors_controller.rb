@@ -32,7 +32,7 @@ class Api::DoctorsController < ApplicationController
       @doctor_schedule = []
 
       30.times do |i|
-        @doctor_schedule << @doctor.timeslots(Date.today + i)
+        @doctor_schedule << @doctor.timeslots(Date.today + i + 1)
       end
     else
       render json: ["You are not authorized, please login first"], status: 401
