@@ -27,7 +27,7 @@ class Api::DoctorsController < ApplicationController
   end
 
   def show
-    if @user = User.find(2)
+    if @user = current_user
       @doctor = Doctor.find(params[:id])
       @doctor_schedule = []
 
