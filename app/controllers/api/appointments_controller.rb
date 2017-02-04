@@ -45,4 +45,17 @@ class Api::AppointmentsController < ApplicationController
       render json: @appointment.errors.full_messages, status: 422
     end
   end
+
+  def index
+    @appointments = User.last.appointments.includes(:doctor, :patients, :time_slot)
+  end
+
+  def destroy
+    @appointment = Appointment.find(params[:id])
+    if current_user.appointments.include?(@appointment) && @appointment.delete
+      render json: @appointment, status: 200
+    else
+      render json: ["Couldn't find it"], status: 422
+    end
+  end
 end

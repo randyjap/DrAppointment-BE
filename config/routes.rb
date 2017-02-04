@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get 'doctors/:id', to: 'doctors#show'
     post 'session', to: 'sessions#create'
     post 'appointments', to: 'appointments#create'
+    get 'appointments', to: 'appointments#index'
+    delete 'appointments', to: 'appointments#destroy'
     get 'patients', to: 'patients#index'
     post 'patients', to: 'patients#create'
     delete 'patients', to: 'patients#destroy'
