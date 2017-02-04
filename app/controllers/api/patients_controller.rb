@@ -16,10 +16,15 @@ class Api::PatientsController < ApplicationController
 
   def index
     @patients = current_user.patients
-    # @patients = User.find(1).patients
   end
 
   def destroy
-
+    patient = Patient.find(params[:id])
+    if patient && current_user.patients.include?(patient)
+      patient.delete
+      render json: patient, status: 200
+    else
+      render json: "can't delete patient", status: 401
+    end
   end
 end
