@@ -98,7 +98,7 @@ end
 Appointment.create(
   doctor: Doctor.first,
   time_slot: TimeSlot.find(5),
-  user: User.first,
+  user: User.last,
 )
 
 Patient.create(
