@@ -26,6 +26,23 @@ class Api::DoctorsController < ApplicationController
     end
   end
 
+  def toggle_favorite_doctor
+    if current_user && params[:doctorId]
+      if fav = Favorite.find_by(doctor_id: params[:id])
+        fav.delete
+        return render json: fav, status: 200
+      else
+        fav = Favorite.new(
+        user: current_user,
+        doctor: Doctor.find(params[:doctorId])
+        )
+        return render json: fav, status: 200
+      end
+    else
+      render json: ["Can't create favorite"], status: 401
+    end
+  end
+
   def show
     if @user = current_user
       @doctor = Doctor.find(params[:id])

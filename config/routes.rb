@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get 'doctor_search', to: 'doctors#search'
     post 'doctor_search', to: 'doctors#search'
     get 'favorite_doctors', to: 'doctors#favorites'
+    post 'favorite_doctors', to: 'doctors#toggle_favorite_doctor'
     get 'doctors/:id', to: 'doctors#show'
     post 'session', to: 'sessions#create'
     post 'appointments', to: 'appointments#create'
