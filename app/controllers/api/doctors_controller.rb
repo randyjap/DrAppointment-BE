@@ -36,7 +36,7 @@ class Api::DoctorsController < ApplicationController
         user: current_user,
         doctor: Doctor.find(params[:doctorId])
         )
-        return render json: fav, status: 200
+        return render json: fav, status: 200 if fav.save
       end
     else
       render json: ["Can't create favorite"], status: 401

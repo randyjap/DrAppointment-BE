@@ -47,7 +47,7 @@ class Api::AppointmentsController < ApplicationController
   end
 
   def index
-    @appointments = User.last.appointments.includes(:doctor, :patients, :time_slot)
+    @appointments = current_user.appointments.includes(:doctor, :patients, :time_slot)
   end
 
   def destroy
