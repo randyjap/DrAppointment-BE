@@ -22,7 +22,13 @@ class Api::UsersController < ApplicationController
       render json: @user, status: 200
     else
       @user = User.new(user_params)
+      @patient = Patient.new({
+        first_name: params[:user][:first_name],
+        last_name: params[:user][:last_name]
+        })
+
       if @user.save
+        @user.patients.push(@patient)
         message = "Please enter verification code #{@user.authy_id}"
         to = "1 #{@user.phone_number}"
         @client = Twilio::REST::Client.new(account_sid, auth_token)
