@@ -4,8 +4,8 @@ json.array! @doctors do |doctor|
   json.image_url doctor.image_url
   json.id doctor.id
   json.name name
-  json.address "#{@doctor.street_number} #{@doctor.street}"
-  json.address2 "#{@doctor.city}, #{@doctor.state} #{@doctor.zip_code}"
+  json.address "#{doctor.street_number} #{doctor.street}"
+  json.address2 "#{doctor.city}, #{doctor.state} #{doctor.zip_code}"
   json.phone "+1 #{doctor.phone_number}"
   json.favorited @user.favorite_doctors.include?(Doctor.find(doctor.id))
   json.lat doctor.lat
