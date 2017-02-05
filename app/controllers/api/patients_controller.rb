@@ -10,7 +10,7 @@ class Api::PatientsController < ApplicationController
     if patient.save
       render json: patient, status: 200
     else
-      render status: 401
+      render json: patient.errors.full_messages, status: 401
     end
   end
 
