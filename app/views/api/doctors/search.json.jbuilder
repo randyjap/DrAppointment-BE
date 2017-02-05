@@ -1,6 +1,5 @@
 json.array! @doctors do |doctor|
-  name = "#{doctor.salutation} #{doctor.first_name} #{doctor.last_name} #{doctor.street_number} #{doctor.street}, #{doctor.city}"
-  name = "#{name[0..30]}..." if name.length > 31
+  name = "#{doctor.salutation} #{doctor.first_name} #{doctor.last_name}"
   json.image_url doctor.image_url
   json.id doctor.id
   json.name name
