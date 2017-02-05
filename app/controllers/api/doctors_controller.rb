@@ -28,7 +28,7 @@ class Api::DoctorsController < ApplicationController
 
   def toggle_favorite_doctor
     if current_user && params[:doctorId]
-      if fav = Favorite.find_by(doctor_id: params[:id])
+      if fav = Favorite.find_by(doctor_id: params[:doctorId])
         fav.delete
         return render json: fav, status: 200
       else
